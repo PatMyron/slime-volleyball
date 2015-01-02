@@ -45,7 +45,7 @@ essentially be broken down into three groups:
 </p>
 
 
-<h2>1. Functions that control the user interface between plays</h2>
+<h3>1. Functions that control the user interface between plays</h3>
 
 <p>           Among these functions are getNames2, displayData,
 actOnOptions, and optionsMenu, and drawPlayerKeysAtStartScreen.  First
@@ -81,7 +81,7 @@ It then waits for player input to return to the main menu.
 
 
 
-<h2>2. Functions that make and move that ball</h2>
+<h3>2. Functions that make and move that ball</h3>
 
 <p>               These functions include moveBall, drawBall ,
 calculateAngleBetweenCenters, and checkForCollisions,
@@ -101,7 +101,7 @@ changes
 </p>
 
 
-<h2>3. Functions that draw the player</h2>
+<h3>3. Functions that draw the player</h3>
 
 <p>               The functions that control the player movement are
 drawPlayer, movePlayer, bringToGround, and validatePlayerMove. The
@@ -121,7 +121,7 @@ half circle is drawn using drawPlayer.
 </p>
 
 
-<h2>4. Functions that control data saving</h2>
+<h3>4. Functions that control data saving</h3>
 
 <p>               Some functions that save and update the player
 information are makeNode and playerExists. Both functions are called
