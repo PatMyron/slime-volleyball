@@ -29,25 +29,25 @@ allow for this multiple- key input, including gfx_open() and
 gfx_event_waiting() but renamed gfx_event_waiting2(). The graphic
 continues to display update according to user input until the escape
 key is pressed. The infinite loop is terminated with a return 0
-command after the escape key is pressed.
+command after the escape key is pressed.</p>
 
-In terms or variables, are most important ones are the ball and the
+<p>In terms or variables, are most important ones are the ball and the
 two player structs. We chose to use structs because there was a
 variety of data that pertained to both the ball and the player. We
 often pass these as parameters to functions. Whether we passed the
 struct by reference or by value depended on whether or not the
 function was intended to change the data in the stuct or not.
+</p>
 
 
-
-The graphics are displayed by many different functions which can
+<p>The graphics are displayed by many different functions which can
 essentially be broken down into three groups:
+</p>
 
 
+<h2>1. Functions that control the user interface between plays</h2>
 
-1. Functions that control the user interface between plays
-
-           Among these functions are getNames2, displayData,
+<p>           Among these functions are getNames2, displayData,
 actOnOptions, and optionsMenu, and drawPlayerKeysAtStartScreen.  First
 getNames2 is called outside of the while(1) loop to get the player
 names of the first two players. The loop reads in user key presses and
@@ -61,8 +61,8 @@ The user input is then displayed the user can see what they are
 typing, this all makes the user input more intuitive.
 drawPlayerKeysAtStartScreen. Is called in this command, this displays
 a graphic of the key commands that each player will use in the game.
-
-           Then there are two functions the control the menu that the
+</p>
+<p>           Then there are two functions the control the menu that the
 player sees between games/ player changes/ etc. and these are
 actonOptions and optionsMenu. OptionsMenu is called from with
 actOnOptions. OptionsMenu dispays the options to the user and then
@@ -74,16 +74,16 @@ newPlayers, or diplayData is called. Displaydata displays the player
 name and number of wins of every player since the window was opened.
 It does this by traversing a linked list and displaying with gfx_text.
 It then waits for player input to return to the main menu.
+</p>
 
 
 
 
 
 
+<h2>2. Functions that make and move that ball</h2>
 
-2. Functions that make and move that ball
-
-               These functions include moveBall, drawBall ,
+<p>               These functions include moveBall, drawBall ,
 calculateAngleBetweenCenters, and checkForCollisions,
 checkForCollisions is called with in moveBall. And it compares the
 ball location to the player, wall and net locations. Only the player
@@ -98,12 +98,12 @@ checked the vy is updated to give the ball a falling motion, like
 gravity. Finally, adding vx/vy changes the ball’s x and y locations.
 drawBall is called after makeBall in main to reflect all of these
 changes
+</p>
 
 
+<h2>3. Functions that draw the player</h2>
 
-3. Functions that draw the player
-
-               The functions that control the player movement are
+<p>               The functions that control the player movement are
 drawPlayer, movePlayer, bringToGround, and validatePlayerMove. The
 player locations are updated upon keypress. A key press sends results
 in a call to the function movePlayer which updates the player location
@@ -118,12 +118,12 @@ bringPlayerToGround controls this. The fuction updates the vy if the
 player is off the ground, iterating through the jumping motion while
 the player is not on the ground.  Finally, the player, a green/ blue
 half circle is drawn using drawPlayer.
+</p>
 
 
+<h2>4. Functions that control data saving</h2>
 
-4. Functions that control data saving
-
-               Some functions that save and update the player
+<p>               Some functions that save and update the player
 information are makeNode and playerExists. Both functions are called
 in main when gameOver returns true. playerExists traverses the linked
 list of players to see if the current player already has a node. It
