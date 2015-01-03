@@ -3,7 +3,7 @@ slime-volleyball
 
 2 player volleyball game written in C using x11 graphics
 
-<img src="https://github.com/PatMyron/slime-volleyball/photos/1.JPG" alt="Slime Volleyball" height="42" width="42">
+<img src="https://raw.githubusercontent.com/PatMyron/slime-volleyball/master/photos/3.JPG" alt="Slime Volleyball" height="42" width="42">
 
 
 <h1>How this program works for the user:<h1>
