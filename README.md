@@ -1,7 +1,7 @@
 slime-volleyball
 ================
 
-2 player volleyball game written in C using x11 graphics
+2 player volleyball game written in C using x11 graphics  made with <a href="https://github.com/amcmaho4">Anna McMahon</a>
 
 <img src="https://raw.githubusercontent.com/PatMyron/slime-volleyball/master/photos/3.JPG" alt="Slime Volleyball" width="100%" <style="height:auto">
 
