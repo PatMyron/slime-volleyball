@@ -1,4 +1,4 @@
-slime-volleyball
+<h1>slime-volleyball</h1>
 ================
 
 2 player volleyball game written in C using x11 graphics  made with <a href="https://github.com/amcmaho4">Anna McMahon</a>
