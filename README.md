@@ -1,4 +1,4 @@
-<h1>slime-volleyball</h1>
+slime-volleyball
 ================
 
 2 player volleyball game written in C using x11 graphics  made with <a href="https://github.com/amcmaho4">Anna McMahon</a>
@@ -6,7 +6,7 @@
 
 <img src="https://raw.githubusercontent.com/PatMyron/slime-volleyball/master/photos/3.JPG" alt="Slime Volleyball" width="100%" <style="height:auto">
 
-<h1>How this program works for the user:<h1>
+<h1>How this program works for the user:</h1>
 
 <p>The game starts with a menu where the two players are asked to input
 their names. The keys for each player are beautifully drawn on the
