@@ -3,10 +3,6 @@ slime-volleyball
 
 2 player volleyball game written in C using x11 graphics  made with <a href="https://github.com/amcmaho4">Anna McMahon</a>
 
-<div style="position: relative;padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ padding-top: 25px; height: 0;">
-  <iframe style="width:100%;height:100%" src="//www.youtube.com/embed/JOFm8SONGV4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
-</div>
-
 <img src="https://raw.githubusercontent.com/PatMyron/slime-volleyball/master/photos/3.JPG" alt="Slime Volleyball" width="100%" <style="height:auto">
 
 
