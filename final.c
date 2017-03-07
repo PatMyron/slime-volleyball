@@ -480,19 +480,12 @@ int optionsMenu() {
             switch (c) {
                 case 'n':
                     return 4;
-                    break;
                 case 'p':
                     return 1;
-                    break;
-
                 case 's':
                     return 2;
-                    break;
-
                 case 'q':
                     return 3;
-                    break;
-
             }
         }
         gfx_flush();
