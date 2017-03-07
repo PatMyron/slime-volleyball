@@ -25,6 +25,7 @@ typedef struct person {   // dont forget typdef
     int wins;
     struct person *next;
 } Person_type;
+
 typedef struct ball {
     float x;
     float y; //position
@@ -33,9 +34,6 @@ typedef struct ball {
     float vy;
 
     int r;  //radius
-
-
-
 } Ball_type;
 
 // declarations must go below structs so that the type thing will work
@@ -283,8 +281,6 @@ void newPlayers(Person_type *pPlayer1, Person_type *pPlayer2, Ball_type *pBall) 
     pPlayer1->wins = 0;
     pPlayer2->wins = 0;
     resetGame(pPlayer1, pPlayer2, pBall);
-
-
 }
 
 // draws the net
@@ -375,7 +371,6 @@ void checkForCollisions(Ball_type *pBall, Person_type *pPlayer) {
      usleep(1000000);     // waiting a second
      */
 
-
     // checks for collisions with net
     if (((pBall->y) > (ht - 150)) && (pBall->x) + (pBall->r) > (wd / 2) && (pBall->x) - (pBall->r) < (wd / 2)) {
         (pBall->vx) = -(pBall->vx);// because the net is vertical wall
@@ -441,7 +436,6 @@ void updatePlayerScoreBoard(Person_type player) {
     gfx_text(player.boundaries[0] + 40, 50, str);
 }
 
-
 // if one of the players has 0 lives this function displays the winner, waits for a keypress to return to the menu, and returns true
 bool gameOver(Person_type *pPlayer1, Person_type *pPlayer2) {
     char str[100], c = 0;
@@ -466,8 +460,7 @@ bool gameOver(Person_type *pPlayer1, Person_type *pPlayer2) {
         return true;
     }
     return false; //game isnt over, both players >1 lives
-}//end func
-
+}
 
 // returns the number inputed by the user on the menu the return value is used by actOnOptions to decide what to do next
 int optionsMenu() {
