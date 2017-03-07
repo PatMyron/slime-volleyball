@@ -161,11 +161,11 @@ int main() {
                 p22->wins += 1;
             }
 
-            if ((*quit) == true)//(actOnOptions(pPlayer1, pPlayer2, pBall, head)==0)
+            if (*quit)//(actOnOptions(pPlayer1, pPlayer2, pBall, head)==0)
                 return 0;
             int act;
             actOnOptions(pPlayer1, pPlayer2, pBall, head, quit);
-            if ((*quit) == true)//(actOnOptions(pPlayer1, pPlayer2, pBall, head)==0)
+            if (*quit)//(actOnOptions(pPlayer1, pPlayer2, pBall, head)==0)
                 return 0;
         }
         gfx_flush();
