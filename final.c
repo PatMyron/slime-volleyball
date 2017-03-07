@@ -187,24 +187,15 @@ void actOnOptions(Person_type *pPlayer1, Person_type *pPlayer2, Ball_type *pBall
 }
 
 // this iterates through the linked list and looks to see if a player already exists, and then returns a pointer that player if it finds it or null otherwise
-Person_type *playerExists(Person_type *p, Person_type *
-
-new ){
-int found = 0;  // a flag to check if a person with a matching name has been founs
-while (!
-found &&((p)
-!= NULL)) {
-if (
-strcmp((p)
-->name,new->name)==0){
-found = 1;
-}
-else
-(p) = (p)->
-next;      // advance pointer
-}
-return
-p;
+Person_type *playerExists(Person_type *p, Person_type *newP) {
+    int found = 0;  // a flag to check if a person with a matching name has been founs
+    while (!found && ((p) != NULL)) {
+        if (strcmp((p)->name, newP->name) == 0) {
+            found = 1;
+        } else
+            (p) = (p)->next;      // advance pointer
+    }
+    return p;
 }
 
 // this provides an interface for the user to enter in two players at the begining of the game, and new players each time 'n' is selected from the menu
