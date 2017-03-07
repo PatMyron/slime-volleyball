@@ -20,8 +20,6 @@ static Colormap gfx_colormap;
 static int      gfx_fast_color_mode = 0;
 
 
-
-
 /* These values are saved by gfx_wait then retrieved later by gfx_xpos and gfx_ypos. */
 static int saved_xpos = 0;
 static int saved_ypos = 0;
