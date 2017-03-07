@@ -168,8 +168,8 @@ int main() {
         }
         gfx_flush();
         usleep(9000);
-    }//end while
-}//end main
+    }
+}
 
 // this calls options menu and uses the return to decide what to do next
 void actOnOptions(Person_type *pPlayer1, Person_type *pPlayer2, Ball_type *pBall, Person_type *head, bool *quit) {
@@ -426,7 +426,7 @@ void validatePlayerMovement(Person_type *pPlayer) {
         pPlayer->x = (pPlayer->boundaries[0] + pPlayer->r);
     }
 
-}//end func
+}
 
 // prints the player's current number of lives at the top of the window
 void updatePlayerScoreBoard(Person_type player) {
@@ -456,7 +456,7 @@ bool gameOver(Person_type *pPlayer1, Person_type *pPlayer2) {
             if (gfx_event_waiting()) {
                 c = gfx_wait();
             }
-        }// end while
+        }
         return true;
     }
     return false; //game isnt over, both players >1 lives
@@ -493,10 +493,10 @@ int optionsMenu() {
                     return 3;
                     break;
 
-            }//end switch
-        }//end if
+            }
+        }
         gfx_flush();
-    }//end while
+    }
 }
 
 // this takes in an array of six bools that are set to true if they have been pressed, it updates the players postions accordingly. Their intended moves are checked in validatePlayerMove (keeps the player on its side of the board)
@@ -527,7 +527,7 @@ void movePlayer(Person_type *pPlayer1, Person_type *pPlayer2, int c, bool keys[6
         pPlayer2->x += 20;
     }
     gfx_flush();
-}// end function
+}
 
 // at the end of each game if a player does not already exist in the linked list then a new node is created with their information
 void makeNode(Person_type **head, Person_type *ppPlayer) {
@@ -640,7 +640,7 @@ void calculateBallsDirection(Ball_type *Ball, Person_type *Player) { //changes b
         angleBetweenCenters += 3.1415926; // fixing restricted range of atan
     Ball->vx = fullBallVelocity * cos(angleBetweenCenters);
     Ball->vy = fullBallVelocity * sin(angleBetweenCenters);
-}//end func
+}
 
 // this draws the key display so the user knows which keys to use
 void drawPlayerKeysAtStartScreen() {
