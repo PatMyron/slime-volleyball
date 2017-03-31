@@ -7,7 +7,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-// structs
 typedef struct person {   // dont forget typdef
     char name[20];
     float x;
