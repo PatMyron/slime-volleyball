@@ -7,7 +7,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-typedef struct person {   // dont forget typdef
+typedef struct person {   // don't forget typedef
     char name[20];
     float x;
     float y; //position
@@ -41,8 +41,6 @@ void drawPlayer(Person_type);
 
 void moveBall(Ball_type *, Person_type *, Person_type *);
 
-void jump(Person_type *pPlayer, Ball_type *pBall);
-
 void validatePlayerMovement(Person_type *);
 
 void updatePlayerScoreBoard(Person_type);
@@ -51,7 +49,7 @@ bool gameOver(Person_type *, Person_type *);
 
 void drawBall(Ball_type ball);
 
-void movePlayer(Person_type *, Person_type *, int c, bool keys[6]);
+void movePlayer(Person_type *, Person_type *, bool keys[6]);
 
 void calculateBallsDirection(Ball_type *Ball, Person_type *Player);
 
@@ -62,10 +60,6 @@ void drawNet();
 void bringPlayerToGround(Person_type *pPlayer);
 
 void resetGame(Person_type *, Person_type *, Ball_type *);
-
-void getNames(char playerNames[2][20]);
-
-float calculateAngleBetweenCenters(float playerx, float playery, float ballx, float bally);
 
 void getNames2(char playerNames[20], int colors[3]);
 
@@ -88,7 +82,6 @@ bool keys[6];  //global for my sanity
 
 int main() {
     // initialize variables and structs
-    int c;
     Person_type *head = NULL, *p1, *p2, *p11, *p22;
 
     //variables used to set the values for players
@@ -121,7 +114,7 @@ int main() {
 
             escapeKeyPressed = gfx_keyPress(keys);
             if (escapeKeyPressed) return 0;
-            movePlayer(pPlayer1, pPlayer2, c, keys);
+            movePlayer(pPlayer1, pPlayer2, keys);
             validatePlayerMovement(pPlayer1);
             validatePlayerMovement(pPlayer2);
         }
@@ -160,7 +153,6 @@ int main() {
 
             if (*quit)//(actOnOptions(pPlayer1, pPlayer2, pBall, head)==0)
                 return 0;
-            int act;
             actOnOptions(pPlayer1, pPlayer2, pBall, head, quit);
             if (*quit)//(actOnOptions(pPlayer1, pPlayer2, pBall, head)==0)
                 return 0;
@@ -185,7 +177,7 @@ void actOnOptions(Person_type *pPlayer1, Person_type *pPlayer2, Ball_type *pBall
 
 // this iterates through the linked list and looks to see if a player already exists, and then returns a pointer that player if it finds it or null otherwise
 Person_type *playerExists(Person_type *p, Person_type *newP) {
-    int found = 0;  // a flag to check if a person with a matching name has been founs
+    int found = 0;  // a flag to check if a person with a matching name has been found
     while (!found && ((p) != NULL)) {
         if (strcmp((p)->name, newP->name) == 0) {
             found = 1;
@@ -195,7 +187,7 @@ Person_type *playerExists(Person_type *p, Person_type *newP) {
     return p;
 }
 
-// this provides an interface for the user to enter in two players at the begining of the game, and new players each time 'n' is selected from the menu
+// this provides an interface for the user to enter in two players at the beginning of the game, and new players each time 'n' is selected from the menu
 void getNames2(char playerNames[20], int colors[3]) {
     static int x = 1;
     int j;
@@ -294,7 +286,7 @@ void drawPlayer(Person_type player) {
     float leftEP, rightEP, height; //used to draw the player filled in
     int numLines = 80;
     float part = M_PI / 2 / numLines;
-    float parteye = 2 * M_PI / numLines;//contolls filling in the eye
+    float parteye = 2 * M_PI / numLines;//controls filling in the eye
     //sets color to that of player
     gfx_color(player.color[0], player.color[1], player.color[2]);
     for (j = 0; j < numLines; j++) {
@@ -357,18 +349,6 @@ void checkForCollisions(Ball_type *pBall, Person_type *pPlayer) {
         pPlayer->vx = 0; // to really make sure it hits him
 
     }
-    /*
-     (pPlayer->lives)--;
-     gfx_color(255,0,0);
-     
-     pBall->y = 20;              // putting it above him
-     pBall->x = pPlayer->x;  // putting it above him
-     pBall->vx = 0;                 // so it falls straight on him
-     gfx_text(pPlayer->x,(pPlayer->y)-100,"-1");
-     drawBall(*pBall);
-     gfx_flush();
-     usleep(1000000);     // waiting a second
-     */
 
     // checks for collisions with net
     if (((pBall->y) > (ht - 150)) && (pBall->x) + (pBall->r) > (wd / 2) && (pBall->x) - (pBall->r) < (wd / 2)) {
@@ -398,7 +378,7 @@ void drawBall(Ball_type ball) {
     }
 }
 
-// this checks to see if the player is off the ground, if it is off the ground this function takes one step iterating through the jumping motion. this function is seperate from all the other player movements because it is the only player action not controlled by a key input
+// this checks to see if the player is off the ground, if it is off the ground this function takes one step iterating through the jumping motion. this function is separate from all the other player movements because it is the only player action not controlled by a key input
 void bringPlayerToGround(Person_type *pPlayer) {
     //check if player is on the ground (done jumping)
     if (pPlayer->y > ht) {
@@ -458,14 +438,12 @@ bool gameOver(Person_type *pPlayer1, Person_type *pPlayer2) {
         }
         return true;
     }
-    return false; //game isnt over, both players >1 lives
+    return false; //game isn't over, both players >1 lives
 }
 
-// returns the number inputed by the user on the menu the return value is used by actOnOptions to decide what to do next
+// returns the number inputted by the user on the menu the return value is used by actOnOptions to decide what to do next
 int optionsMenu() {
     int c;
-    char str[100];
-    bool letterPress = false;
     gfx_clear();
     gfx_text((wd / 2) - 100, ht / 2 - 150, "Menu Options:");
     gfx_text((wd / 2) - 120, ht / 2 - 100, "play slime volley(p) ");
@@ -491,8 +469,8 @@ int optionsMenu() {
     }
 }
 
-// this takes in an array of six bools that are set to true if they have been pressed, it updates the players postions accordingly. Their intended moves are checked in validatePlayerMove (keeps the player on its side of the board)
-void movePlayer(Person_type *pPlayer1, Person_type *pPlayer2, int c, bool keys[6]) {
+// this takes in an array of six bools that are set to true if they have been pressed, it updates the players positions accordingly. Their intended moves are checked in validatePlayerMove (keeps the player on its side of the board)
+void movePlayer(Person_type *pPlayer1, Person_type *pPlayer2, bool keys[6]) {
     //checks keys[] bool array
     if (keys[1] == 1) {  // player1 up key pressed
         if (pPlayer1->onGround) {
@@ -566,30 +544,12 @@ void calculateBallsDirection(Ball_type *Ball, Person_type *Player) { //changes b
     float fullBallVelocity;
     fullBallVelocity = 10; //the balls full velocity is set to ten after it hits anything as opposed to its actual current velocity because the game dwindles when the ball moves slower and slower
     // quadrant headed towards if ball was at origin
-    /*
-     int q = -1;
-     if(Ball -> vx > 0 && Ball -> vy > 0)
-     q=1;
-     if(Ball -> vx < 0 && Ball -> vy > 0)
-     q=2;
-     if(Ball -> vx < 0 && Ball -> vy < 0)
-     q=3;
-     if(Ball -> vx > 0 && Ball -> vy < 0)
-     q=4;
-     */
-    /*
-     float vslope;
-     if(  Ball -> vx  ==0 )
-     vslope=0;
-     else
-     vslope = Ball -> vy / Ball -> vx ;
-     */
     float slopeBetweenCenters;
     float centersDiffX, centersDiffY;
     centersDiffX = Ball->x - Player->x;
     centersDiffY = Ball->y - Player->y;
     if (abs(centersDiffX) < 0.00001)
-        centersDiffX = 0.00001;  //dont divide by zero
+        centersDiffX = 0.00001;  //don't divide by zero
     slopeBetweenCenters = centersDiffY / centersDiffX;
     int quadrantHit;
     quadrantHit = -1; // quadrant of player hit

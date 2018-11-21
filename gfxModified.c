@@ -168,8 +168,6 @@ int gfx_event_waiting2()
        }
 }
 
-
-
 /* Wait for the user to press a key or mouse button. */
 char gfx_wait()
 {
@@ -216,7 +214,6 @@ int gfx_ysize()
 
 /* Draw a string at point (x,y) */
 void gfx_text( int x, int y , char *text )
-	
 {	
 	//Font font=XLoadFont(gfx_display,-bitstream-charter-medium-r-normal--12-120-75-75-p-68-iso8859-1[65 70 80_90]);
 	//XTextItem stritem={text,50,5,};
@@ -330,7 +327,6 @@ bool gfx_keyPress(bool keys[6]){
 			case 65307:
 				printf("escaped\n");
 				return 1;
-				break;
 			case 112:
 				printf("paused\n");
 				while(1){
@@ -343,16 +339,8 @@ bool gfx_keyPress(bool keys[6]){
 				}
 				break;
 			default:
-				//printf("wrong key");
 				break;
 			}
-
-			int counter;
-			/*
-			for(counter=0;counter<6;counter++)
-				printf("%i ",keys[counter]);
-			printf("\n\n");
-			*/
 			break;
 		case KeyRelease:
 			{
@@ -397,15 +385,8 @@ bool gfx_keyPress(bool keys[6]){
 						keys[5] = 0;
 						break;	
 					default:
-						//printf("wrong key");
 						break;
 					}
-					int counter;
-					/*
-					for(counter=0;counter<6;counter++)
-						printf("%i ",keys[counter]);
-					printf("\n\n");
-					*/
 				}
 			}
 			break;
